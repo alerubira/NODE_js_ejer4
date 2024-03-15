@@ -1,0 +1,20 @@
+{
+  "name": "node_js_ejer4",
+  "version": "1.0.0",
+  "description": "armando el ejercicio 4",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alerubira/NODE_js_ejer4.git"
+  },
+  "keywords": [],
+  "author": "Alejandro Rubira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alerubira/NODE_js_ejer4/issues"
+  },
+  "homepage": "https://github.com/alerubira/NODE_js_ejer4#readme"
+}
