@@ -2,26 +2,35 @@
 const request = require('request'); 
 request('https://ghibliapi.herokuapp.com/films', (error, response, body) => { 
  if (error) { 
- console.error(`No se pudo enviar la solicitud a API: ${error.message}`); 
+ console.error(`No se pudo enviar la solicitud a la API: ${error.message}`); 
  return; 
  } 
- if (response.statusCode != 200) { 
+ /*if (response.statusCode != 200) { 
  console.error(`Espectativa de codigo 200 , pero recivida codigo: ${response.statusCode}.`); 
  return; 
+ }:*/
+ if(error){
+    console.error(`codigo de error :${error.statusCode}
+    mensaje de error: ${error.statusMessage}`);
+    return;
+ }
+ if(response.statusCode===503){
+    console.error(`Servidor fuera de servicio temporelmente ${response.statusMessage}`);
+    return;
  } 
  
  console.log('Procesando su lista de peliculas'); 
- movies = JSON.parse(body); 
- movies.forEach(movie => { 
- console.log(`${movie['title']}, ${movie['release_date']}`); 
+ let peliculas = JSON.parse(body); 
+ peliculas.forEach(pelicula => { 
+ console.log(`${pelicula['title']}, ${pelicula['release_date']}`); 
  }); 
 }); 
 /*Ejecute el programa (recuerde instalar previamente el paquete request via NPM) 
 Contestar: 
-¿Cuáles són los párametros del callback? 
-¿Cual es el contenido de error y body si el request falla? 
-¿Dónde se encuentran almacenados los datos si el request es exitoso? 
-¿En que formato vienen los datos recuperados? 
+¿Cuáles són los párametros del callback? error , respuesta ,y un cuerpo con las peliculas
+¿Cual es el contenido de error y body si el request falla? error trae el status y el mensaje de error,body viene undefiend
+¿Dónde se encuentran almacenados los datos si el request es exitoso?en el body 
+¿En que formato vienen los datos recuperados? JSON
 Tarea 
 a.- Modifique el programa para guardar las películas recuperadas en un archivo 
 callbackMovies.csv. 

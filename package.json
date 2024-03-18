@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/alerubira/NODE_js_ejer4/issues"
   },
-  "homepage": "https://github.com/alerubira/NODE_js_ejer4#readme"
+  "homepage": "https://github.com/alerubira/NODE_js_ejer4#readme",
+  "dependencies": {
+    "request": "^2.88.2"
+  }
 }
